@@ -1,0 +1,36 @@
+const handler = async (m, { conn }) => {
+
+    const imageUrl = "https://files.catbox.moe/c48scl.jpg";
+
+    const messageText = `
+*『 مرحبا بك يا  ⌊ ${m.pushName} ⌉ في فيتو بـــ𝐕𝐢𝐭𝐨ـــوت 』*
+
+*⌝ قسم ┋🔍⌞ ⇊*
+*⎔ ⋅ ───━ •﹝🧞﹞• ━─── ⋅ ⎔*
+*🔍┊⇇『IP』*
+*🔍┊⇇『اخبار-انمي』*
+*🔍┊⇇『اخبار-كره』*
+*🔍┊⇇『بحث-تيك』*
+*🔍┊⇇『دروس』*
+*🔍┊⇇『فري-فاير』*
+*🔍┊⇇『مانجا』*
+*🔍┊⇇『ناسا』*
+*⎔ ⋅ ───━ •﹝🧞﹞• ━─── ⋅ ⎔*
+> فيتو بـــ𝐕𝐢𝐭𝐨-bₒₜـــوت 💗💛
+    `.trim();
+
+    await conn.sendMessage(m.chat, { text: "*_جاري إرسال القسم....... 🔍_*" }, { quoted: m });
+
+    await conn.sendMessage(m.chat, {
+        image: { url: imageUrl },
+        caption: messageText
+    }, { quoted: m });
+
+    await conn.sendMessage(m.chat, { react: { text: '🧞', key: m.key } });
+};
+
+handler.command = /^قسم-بحث$/i;
+handler.tags = ["اوبيتو"];
+handler.help = ["اوبيتو"];
+
+export default handler;
